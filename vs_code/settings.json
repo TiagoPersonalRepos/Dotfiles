@@ -1,0 +1,42 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "explorer.confirmDragAndDrop": false,
+    "git.mergeEditor": true,
+    "editor.fontSize": 16,
+    "latex-workshop.view.pdf.viewer": "external",
+    "workbench.panel.defaultLocation": "right",
+    "editor.minimap.renderCharacters": false,
+    "files.associations": {
+        "*.tex": "latex"
+    },
+    "latex-workshop.latex.autoBuild.run": "never",
+    "cSpell.language": ",pt,pt_PT",
+    "zenMode.restore": true,
+    //"editor.fontFamily": "'Code New Roman', 'monospace', monospace, 'Droid Sans Fallback'",
+    "terminal.integrated.fontSize": 16,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    //"terminal.integrated.defaultProfile.windows": "Debian (WSL)",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    //"terminal.integrated.cwd": "",
+    //"workbench.colorTheme": "Dark+ Material",
+
+    /*
+    "workbench.colorCustomizations": {
+        //"breadcrumb.background": "#000000",
+        "editor.background": "#000000",
+        "editor.selectionBackground": "#414141",
+        "editor.selectionHighlightBackground": "#414141",
+        //"editorGutter.background": "#000000",
+        //"tab.activeBackground": "#000000"
+        "terminal.background": "#000000",
+        "terminal.selectionBackground": "#414141",
+        "terminal.selectionHighlightBackground": "#414141"
+    },*/
+
+    "ltex.language": "pt-PT",
+    "workbench.colorTheme": "Dark+ Material",
+    "files.exclude": {
+        "**/.git": false
+    }
+}

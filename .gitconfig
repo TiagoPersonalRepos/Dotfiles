@@ -1,0 +1,10 @@
+[core]
+	editor = vim 
+
+[alias]
+# nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%C(blue bold)%ad %C(green)%an%C(reset) %C(white)%s%C(reset) %C(reset)%C(auto)%d' --color=always
+nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%ad %an %s %d' --color=always
+lg = !"git nicelog"
+
+nicestatus = status -su
+st = !"git nicestatus"
