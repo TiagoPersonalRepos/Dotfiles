@@ -56,9 +56,21 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+git --version 2>&1 >/dev/null 
+GIT_IS_AVAILABLE=$?
+
 if [ "$color_prompt" = yes ]; then
 #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\w\[\033[00m\]\n\[\033[01;32m\]\u@\h\[\033[00m\]$ '
+
+    if [ $GIT_IS_AVAILABLE -eq 0 ]; then
+        function repo_name() {
+            git rev-parse --show-toplevel 2> /dev/null | awk -F/ '{print $NF}'
+        }
+        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;44m\]\w\[\033[00m\]\[\033[96m\] `repo_name`\[\033[00m\]\[\033[35m\] $(git rev-parse --abbrev-ref HEAD 2> /dev/null)\[\033[00m\]\n\[\033[01;32m\]\u@\h\[\033[00m\]$ '
+    else
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;44m\]\w\[\033[00m\]\n\[\033[01;32m\]\u@\h\[\033[00m\]$ '
+    fi
+
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -80,13 +92,13 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -l'
@@ -112,6 +124,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 # ------------------------------------------------------------------
 #                              MY STUFF
 # ------------------------------------------------------------------
