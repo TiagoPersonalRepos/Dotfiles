@@ -6,5 +6,7 @@
 nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%ad %an %s %d' --color=always
 lg = !"git nicelog"
 
+# git rm --cached filetwo.txt
+
 nicestatus = status -su
 st = !"git nicestatus"
