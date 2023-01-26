@@ -10,3 +10,8 @@ lg = !"git nicelog"
 
 nicestatus = status -su
 st = !"git nicestatus"
+
+[credential]
+        helper = /usr/local/bin/git-credential-manager-core
+        credentialStore = cache
+        guiPrompt = false
