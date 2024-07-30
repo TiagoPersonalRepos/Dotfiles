@@ -19,3 +19,6 @@ st = !"git nicestatus"
         helper = /usr/local/bin/git-credential-manager-core
         credentialStore = cache
         guiPrompt = false
+
+# git config --global user.email "<email>"
+# git config --global user.name "<username>"
