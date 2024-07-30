@@ -11,6 +11,10 @@ lg = !"git nicelog"
 nicestatus = status -su
 st = !"git nicestatus"
 
+# wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v<version>/gcm-linux_<arch>.<version>.deb" -O /tmp/gcmcore.deb
+# sudo dpkg -i /tmp/gcmcore.deb
+# git-credential-manager configure
+
 [credential]
         helper = /usr/local/bin/git-credential-manager-core
         credentialStore = cache
