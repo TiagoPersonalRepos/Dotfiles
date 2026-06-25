@@ -3,5 +3,9 @@
     {
         "key": "ctrl+t",
         "command": "workbench.action.tasks.runTask",
-    }, 
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.debug.selectandstart",
+    },
 ]
