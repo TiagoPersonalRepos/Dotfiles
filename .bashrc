@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -60,7 +60,7 @@ fi
 #                        My Prompt
 # ---------------------------------------------------------
 
-git --version 2>&1 >/dev/null 
+git --version 2>&1 >/dev/null
 GIT_IS_AVAILABLE=$?
 
 if [ "$color_prompt" = yes ]; then
@@ -133,9 +133,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# ------------------------------------------------------------------
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #                              MY STUFF
-# ------------------------------------------------------------------
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 HISTTIMEFORMAT="%d/%m/%Y %k:%M:%S "
 
@@ -148,6 +148,21 @@ alias ls='ls'$my_ls_flags
 alias nls='clear && ls -l'$my_ls_flags
 
 function cd() {
-	builtin cd "$@";
-	nls;
+        builtin cd "$@";
+        nls;
 }
+
+function mycat() {
+        nl -ba "$@" | more
+}
+
+# fucntion dockeridbyname() {
+#     docker ps --filter "name=$@" --format "{{.ID}}"
+# }
+
+alias cat='echo "Also try nl." && cat '
+alias mydps='docker ps -a --format "table {{.Names}}\t{{.State}}\t{{.ID}}\t{{.Image}}"'
+
+# git rev-parse --abbrev-ref HEAD 2> /dev/null
+# git rev-parse --show-toplevel 2> /dev/null | awk -F/ '{print $NF}'
+# diff -y --color <(nl -ba file1.txt) <(nl -ba file2.txt)
