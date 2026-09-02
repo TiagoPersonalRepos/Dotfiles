@@ -142,14 +142,14 @@ HISTTIMEFORMAT="%d/%m/%Y %k:%M:%S "
 export my_date_f1='+%d/%m/%Y\ %k:%M:%S'
 export my_date_f2='+%d/%m/%y\ %k:%M'
 
-my_ls_flags=' -huAG --color=auto --time-style='$my_date_f2
+my_ls_flags=' -huA --color=auto --time-style='$my_date_f2
 
 alias ls='ls'$my_ls_flags
 alias nls='clear && ls -l'$my_ls_flags
 
 function cd() {
-        builtin cd "$@";
-        nls;
+    builtin cd "$@";
+    nls -G;
 }
 
 function mycat() {
@@ -160,9 +160,10 @@ function mycat() {
 #     docker ps --filter "name=$@" --format "{{.ID}}"
 # }
 
-alias cat='echo "Also try nl." && cat '
-alias mydps='docker ps -a --format "table {{.Names}}\t{{.State}}\t{{.ID}}\t{{.Image}}"'
+alias dk_ps='docker ps -a --format "table {{.Names}}\t{{.State}}\\t{{.Ports}}"'
+alias dk_cmp='docker compose up -d --build 2>&1'
 
 # git rev-parse --abbrev-ref HEAD 2> /dev/null
 # git rev-parse --show-toplevel 2> /dev/null | awk -F/ '{print $NF}'
 # diff -y --color <(nl -ba file1.txt) <(nl -ba file2.txt)
+# git diff --word-diff

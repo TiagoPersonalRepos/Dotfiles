@@ -1,9 +1,11 @@
 [core]
-	editor = vim 
+	editor = nano 
 
 [alias]
-# nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%C(blue bold)%ad %C(green)%an%C(reset) %C(white)%s%C(reset) %C(reset)%C(auto)%d' --color=always
-nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%ad %an %s %d' --color=always
+ct = !"git rev-list --left-right --count $(git branch --show-current)...@{upstream}" # Commits to push, commits to pull
+
+nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%C(blue bold)%ad %C(green)%an%C(reset) %C(white)%s%C(reset) %C(reset)%C(auto)%d' --color=always
+# nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%ad %an %s %d' --color=always
 lg = !"git nicelog"
 
 # git rm --cached filetwo.txt
