@@ -1,8 +1,15 @@
 [core]
-	editor = nano 
+	editor = nano
 
 [alias]
-ct = !"git rev-list --left-right --count $(git branch --show-current)...@{upstream}" # Commits to push, commits to pull
+
+# Left number (commits ahead — in your branch, not in upstream)
+ctpush = !"git rev-list --count @{upstream}..$(git branch --show-current)"
+
+# Right number (commits behind — in upstream, not in your branch)
+ctpull = !"git rev-list --count $(git branch --show-current)..@{upstream}"
+
+ct = !"git rev-list --left-right --count $(git branch --show-current)...@{upstream}"
 
 nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%C(blue bold)%ad %C(green)%an%C(reset) %C(white)%s%C(reset) %C(reset)%C(auto)%d' --color=always
 # nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%ad %an %s %d' --color=always
@@ -18,9 +25,12 @@ st = !"git nicestatus"
 # git-credential-manager configure
 
 [credential]
-        helper = /usr/local/bin/git-credential-manager-core
-        credentialStore = cache
-        guiPrompt = false
+        # helper = /usr/bin/git-credential-azure
+        # credentialStore = cache
+        # guiPrompt = false
 
 # git config --global user.email "<email>"
 # git config --global user.name "<username>"
+[user]
+	email = tiago.andrade@katalist.com
+	name = tiago.andrade
