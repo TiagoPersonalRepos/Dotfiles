@@ -1,0 +1,1 @@
+- `git pull --rebase origin <branch>`: for when you have **no local commits nor unstaged** changes
