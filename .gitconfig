@@ -13,6 +13,8 @@ ct = !"git rev-list --left-right --count $(git branch --show-current)...@{upstre
 
 pub = !"git push -u origin $(git branch --show-current)"
 
+mrg = !"merge --no-edit"
+
 nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%C(blue bold)%ad %C(green)%an%C(reset) %C(white)%s%C(reset) %C(reset)%C(auto)%d' --color=always
 # nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%ad %an %s %d' --color=always
 lg = !"git nicelog"

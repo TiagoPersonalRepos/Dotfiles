@@ -160,8 +160,12 @@ function mycat() {
 #     docker ps --filter "name=$@" --format "{{.ID}}"
 # }
 
-alias dk_ps='docker ps -a --format "table {{.Names}}\t{{.State}}\\t{{.Ports}}"'
+alias dk_ps='docker ps -a --format "table {{.Names}}\t{{.Status}}\\t{{.Image}}"'
 alias dk_cmp='docker compose up -d --build 2>&1'
+
+# alias diff='diff -y --color' # Use icdiff instead
+# tree -fal --noreport -I ".git|node_modules|dist" <arg>
+# sudo apt install icdiff
 
 # git rev-parse --abbrev-ref HEAD 2> /dev/null
 # git rev-parse --show-toplevel 2> /dev/null | awk -F/ '{print $NF}'
