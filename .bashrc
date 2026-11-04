@@ -147,6 +147,7 @@ my_ls_flags=' -huA --color=auto --time-style='$my_date_f2
 
 alias _ls='ls'$my_ls_flags
 alias _cls='clear && ls -l -huA --color=auto --time-style='$my_date_f2
+alias _cat='nl -ba'
 
 function cd() {
     builtin cd "$@";
@@ -158,10 +159,6 @@ function cd() {
 #     _cls -G;
 # }
 
-# function _cat() {
-#     nl -ba "$@";
-# }
-
 # fucntion dockeridbyname() {
 #     docker ps --filter "name=$@" --format "{{.ID}}"
 # }
@@ -169,7 +166,8 @@ function cd() {
 alias dk_ps='docker ps -a --format "table {{.Names}}\t{{.Status}}\\t{{.Ports}}"'
 alias dk_cmp='docker compose up -d --build 2>&1'
 
-alias _diff='diff -y --color --suppress-common-lines' # Use icdiff instead
+# Use icdiff instead # https://github.com/jeffkaufman/icdiff/blob/master/README.md
+alias _diff='diff -y --color --suppress-common-lines ' 
 # tree -fal --noreport -I ".git|node_modules|dist" <arg>
 # sudo apt install icdiff
 
