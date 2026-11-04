@@ -78,8 +78,9 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
-# --------------------------------------------------------
-#
+# ---------------------------------------------------------
+#                      End My Prompt
+# ---------------------------------------------------------
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -137,37 +138,41 @@ fi
 #                              MY STUFF
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-HISTTIMEFORMAT="%d/%m/%Y %k:%M:%S "
+HISTTIMEFORMAT="%Y/%m/%d %k:%M:%S "
 
-export my_date_f1='+%d/%m/%Y\ %k:%M:%S'
-export my_date_f2='+%d/%m/%y\ %k:%M'
+export my_date_f1='+%Y/%m/%d\ %k:%M:%S'
+export my_date_f2='+%y/%m/%d\ %k:%M'
 
 my_ls_flags=' -huA --color=auto --time-style='$my_date_f2
 
-alias ls='ls'$my_ls_flags
-alias nls='clear && ls -l'$my_ls_flags
+alias _ls='ls'$my_ls_flags
+alias _cls='clear && ls -l -huA --color=auto --time-style='$my_date_f2
 
 function cd() {
     builtin cd "$@";
-    nls -G;
+    _cls -G;
 }
 
-function mycat() {
-        nl -ba "$@" | more
-}
+# function _cd() {
+#     builtin cd "$@";
+#     _cls -G;
+# }
+
+# function _cat() {
+#     nl -ba "$@";
+# }
 
 # fucntion dockeridbyname() {
 #     docker ps --filter "name=$@" --format "{{.ID}}"
 # }
 
-alias dk_ps='docker ps -a --format "table {{.Names}}\t{{.Status}}\\t{{.Image}}"'
+alias dk_ps='docker ps -a --format "table {{.Names}}\t{{.Status}}\\t{{.Ports}}"'
 alias dk_cmp='docker compose up -d --build 2>&1'
 
-# alias diff='diff -y --color' # Use icdiff instead
+alias _diff='diff -y --color --suppress-common-lines' # Use icdiff instead
 # tree -fal --noreport -I ".git|node_modules|dist" <arg>
 # sudo apt install icdiff
 
 # git rev-parse --abbrev-ref HEAD 2> /dev/null
 # git rev-parse --show-toplevel 2> /dev/null | awk -F/ '{print $NF}'
-# diff -y --color <(nl -ba file1.txt) <(nl -ba file2.txt)
 # git diff --word-diff
