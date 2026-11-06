@@ -2,7 +2,6 @@
 	editor = nano
 
 [alias]
-
 # Left number (commits ahead — in your branch, not in upstream)
 ctpush = !"git rev-list --count @{upstream}..$(git branch --show-current)"
 
@@ -36,5 +35,8 @@ st = !"git nicestatus"
 # git config --global user.email "<email>"
 # git config --global user.name "<username>"
 [user]
-	email = tiago.andrade@katalist.com
+	email = tiago.h.a.andrade@gmail.com
 	name = tiago.andrade
+
+[icdiff]
+	options = --highlight --line-numbers # requires: sudo apt install icdiff
