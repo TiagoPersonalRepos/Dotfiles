@@ -2,26 +2,30 @@
 	editor = nano
 
 [alias]
-# Left number (commits ahead — in your branch, not in upstream)
-ctpush = !"git rev-list --count @{upstream}..$(git branch --show-current)"
+	# Left number (commits ahead — in your branch, not in upstream)
+	ctpush = !"git rev-list --count @{upstream}..$(git branch --show-current)"
 
-# Right number (commits behind — in upstream, not in your branch)
-ctpull = !"git rev-list --count $(git branch --show-current)..@{upstream}"
+	# Right number (commits behind — in upstream, not in your branch)
+	ctpull = !"git rev-list --count $(git branch --show-current)..@{upstream}"
 
-ct = !"git rev-list --left-right --count $(git branch --show-current)...@{upstream}"
+	ct = !"git rev-list --left-right --count $(git branch --show-current)...@{upstream}"
 
-pub = !"git push -u origin $(git branch --show-current)"
+	pub = !"git push -u origin $(git branch --show-current)"
 
-mrg = !"merge --no-edit"
+	mrg = !"merge --no-edit"
 
-nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%C(blue bold)%ad %C(green)%an%C(reset) %C(white)%s%C(reset) %C(reset)%C(auto)%d' --color=always
-# nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%ad %an %s %d' --color=always
-lg = !"git nicelog"
+	nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%C(blue bold)%ad %C(green)%an%C(reset) %C(white)%s%C(reset) %C(reset)%C(auto)%d' --color=always
+	# nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%ad %an %s %d' --color=always
+	lg = !"git nicelog"
 
-# git rm --cached filetwo.txt
+	canff = "!f() { git fetch -a -q; t=\"${1:-@{upstream}}\"; git merge-base --is-ancestor HEAD \"$t\"; }; f;"
 
-nicestatus = status -su
-st = !"git nicestatus"
+	# git merge --ff-only --no-commit
+
+	# git rm --cached filetwo.txt
+
+	nicestatus = status -su
+	st = !"git nicestatus"
 
 # wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v<version>/gcm-linux_<arch>.<version>.deb" -O /tmp/gcmcore.deb
 # sudo dpkg -i /tmp/gcmcore.deb

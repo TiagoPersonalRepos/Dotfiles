@@ -149,9 +149,9 @@ alias _ls='ls'$my_ls_flags
 alias _cls='clear && ls -l -huA --color=auto --time-style='$my_date_f2
 alias _cat='nl -ba'
 
-function cd() {
-    builtin cd "$@";
-    _cls -G;
+_cd() {
+    cd "$@" || return
+    _cls -G
 }
 
 # function _cd() {
