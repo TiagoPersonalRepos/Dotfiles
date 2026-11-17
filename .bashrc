@@ -143,10 +143,10 @@ HISTTIMEFORMAT="%Y/%m/%d %k:%M:%S "
 export my_date_f1='+%Y/%m/%d\ %k:%M:%S'
 export my_date_f2='+%y/%m/%d\ %k:%M'
 
-my_ls_flags=' -huA --color=auto --time-style='$my_date_f2
-
-alias _ls='ls'$my_ls_flags
-alias _cls='clear && ls -l -huA --color=auto --time-style='$my_date_f2
+alias ls='ls -hu --color=auto --time-style='$my_date_f2
+alias _ls='ls -hAuG --color=auto --time-style='$my_date_f2
+alias _ll='ls -lhAuG --color=auto --time-style='$my_date_f2
+alias _cls='clear && ls -lhAuG --color=auto --time-style='$my_date_f2
 alias _cat='nl -ba'
 
 _cd() {
