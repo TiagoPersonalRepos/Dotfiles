@@ -27,10 +27,12 @@ current=$(git -C "$path_var" symbolic-ref --short -q HEAD) || {
   exit 1
 }
 
-declare -a dep_branches_arr=()
+declare -a dep_branches_info_arr=()
 
-dep_branches_arr+=("BRANCH","COUNT_PULL_FROM","COUNT_AHEAD")
-dep_branches_arr+=("","","")
+dep_branches_info_arr+=("BRANCH","COUNT_PULL_FROM","COUNT_AHEAD")
+dep_branches_info_arr+=("","","")
+
+declare -a dep_branches_arr=()
 
 # while read -r branch; do
 for branch in `git -C "$path_var" for-each-ref --format='%(refname:short)' refs/heads/`; do
@@ -45,7 +47,9 @@ for branch in `git -C "$path_var" for-each-ref --format='%(refname:short)' refs/
   acestor_count=$(git -C "$path_var" rev-list --count "$current..$branch"); # How many commits can current pull from branch
   push_count=$(git -C "$path_var" rev-list --count "$branch..$current"); # How many commits are in branch and not in current
 
-  $is_acestor && dep_branches_arr+=("$branch","$acestor_count","$push_count");
+  $is_acestor && dep_branches_arr+=("$branch")
+
+  $is_acestor && dep_branches_info_arr+=("$branch","$acestor_count","$push_count");
 done
 
-printf '%s\n' "${dep_branches_arr[@]}" | column -t -s ","
+printf '%s\n' "${dep_branches_info_arr[@]}" | column -t -s ","
