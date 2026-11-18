@@ -15,7 +15,7 @@
 	mrg = !"merge --no-edit"
 
 	nicelog = log --graph --decorate --all --date-order --date=format:'%y/%m/%d %k:%M' --pretty=format:'%C(blue bold)%ad %C(green)%an%C(reset) %C(white)%s%C(reset) %C(reset)%C(auto)%d' --color=always
-	# nicelog = log --graph --decorate --all --date-order --date=format:'%d/%m/%y %k:%M' --pretty=format:'%ad %an %s %d' --color=always
+	# nicelog = log --graph --decorate --all --date-order --date=format:'%y/%m/%d %k:%M' --pretty=format:'%ad %an %s %d' --color=always
 	lg = !"git nicelog"
 
 	canff = "!f() { git fetch -a -q; t=\"${1:-@{upstream}}\"; git merge-base --is-ancestor HEAD \"$t\"; }; f;"
@@ -27,14 +27,14 @@
 	nicestatus = status -su
 	st = !"git nicestatus"
 
-# wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v<version>/gcm-linux_<arch>.<version>.deb" -O /tmp/gcmcore.deb
-# sudo dpkg -i /tmp/gcmcore.deb
-# git-credential-manager configure
+	# wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v<version>/gcm-linux_<arch>.<version>.deb" -O /tmp/gcmcore.deb
+	# sudo dpkg -i /tmp/gcmcore.deb
+	# git-credential-manager configure
 
 [credential]
-        # helper = /usr/bin/git-credential-azure
-        # credentialStore = cache
-        # guiPrompt = false
+	# helper = /usr/bin/git-credential-azure
+	# credentialStore = cache
+	# guiPrompt = false
 
 # git config --global user.email "<email>"
 # git config --global user.name "<username>"

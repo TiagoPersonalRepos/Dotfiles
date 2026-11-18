@@ -149,7 +149,7 @@ alias _ll='ls -lhAuG --color=auto --time-style='$my_date_f2
 alias _cls='clear && ls -lhAuG --color=auto --time-style='$my_date_f2
 alias _cat='nl -ba'
 
-_cd() {
+_dir() {
     cd "$@" || return
     _cls -G
 }
